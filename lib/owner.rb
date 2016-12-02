@@ -1,8 +1,3 @@
-require 'fish'
-require 'dog'
-require 'cat'
-require 'pry'
-
 class Owner
   attr_accessor :mood, :name, :buy_fish, :pets
   attr_reader :species, :say_species
@@ -65,13 +60,7 @@ class Owner
   end
 
    def list_pets
-    fishcount = 0
-    catcount = 0
-    dogcount = 0
-    @pets[:dogs].each {|dog| dogcount += 1}
-    @pets[:cats].each {|cat| catcount += 1}
-    @pets[:fishes].each {|fish| fishcount += 1}
+    fishcount = @pets[:fishes].count; dogcount = @pets[:dogs].count; catcount = @pets[:cats].count
     return "I have #{fishcount} fish, #{dogcount} dog(s), and #{catcount} cat(s)."
   end
-
 end
